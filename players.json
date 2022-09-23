@@ -1,0 +1,74 @@
+[
+  {
+    "id": "asYLum",
+    "name": "Illay Lehrer",
+    "country": ["Israel"],
+    "age": "22",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  },
+  {
+    "id": "hydra",
+    "name": "Anton Sviridon",
+    "country": ["Israel"],
+    "age": "26",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  },
+  {
+    "id": "LaNrefNi",
+    "name": "Lidor Almasi",
+    "country": ["Israel"],
+    "age": "23",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  },
+  {
+    "id": "Meow",
+    "name": "Gal Shmulevich",
+    "country": ["Israel"],
+    "age": "21",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  },
+  {
+    "id": "Nertz",
+    "name": "Guy Iluz",
+    "country": ["Israel"],
+    "age": "23",
+    "role": "Rifler",
+    "team": "Endpoint",
+    "majors": 0
+  },
+  {
+    "id": "Ponkt",
+    "name": "Daniel Punkt",
+    "country": ["Israel"],
+    "age": "23",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  },
+  {
+    "id": "Spinx",
+    "name": "Lotan Giladi",
+    "country": ["Israel"],
+    "age": "22",
+    "role": "Rifler",
+    "team": "Team Vitality",
+    "majors": 2
+  },
+  {
+    "id": "ZENCER",
+    "name": "Roey Kimhi",
+    "country": ["Israel"],
+    "age": "21",
+    "role": "Rifler",
+    "team": "none",
+    "majors": 0
+  }
+]
