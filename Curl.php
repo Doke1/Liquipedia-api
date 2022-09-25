@@ -19,7 +19,7 @@
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_MAXCONNECTS, $MAX_CONNECTS);
             curl_setopt($curl, CURLOPT_TIMEOUT, $TIMEOUT);
-            curl_setopt($curl, CURLOPT_ENCODING, '');
+            #curl_setopt($curl, CURLOPT_ENCODING, '');
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
             $response = curl_exec($curl);
