@@ -122,7 +122,7 @@
             ";
 
             $this->re_role = "
-                /<a href=\"\/counterstrike\/Category:(AWPers|Riflers)\" title=\"Category:(AWPers|Riflers)\">(AWPers|Rifler?)<\/a>/
+                /<a href=\"\/counterstrike\/Category:(AWPers|Riflers|Coaches)\" title=\"Category:(AWPers|Riflers|Coaches)\">(AWPers|Rifler|Coach?)<\/a>/
             ";
 
             $this->re_team = "
