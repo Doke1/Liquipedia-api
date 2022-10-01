@@ -49,7 +49,7 @@
 
                 $data = $this->setRegexp($curl, array("role" => $role, "age" => $age, "majors" => $majors), $key);
                 $i = count($this->user_info);
-		
+
                 if(!empty($data)) {
                     $this->user_info[$i]["id"] = $data[0];
                     $this->user_info[$i]["name"] = $data[1];
@@ -58,7 +58,7 @@
                     $this->user_info[$i]["role"] = $data[4];
                     $this->user_info[$i]["team"] = $data[5];
                     $this->user_info[$i]["majors"] = $data[6];
-                    
+
                     print_r(".");
                 }
             }
@@ -97,14 +97,12 @@
             preg_match($this->re_team, $curl, $matches_team, PREG_OFFSET_CAPTURE);
 
             $majors = $this->majorCount($this->uri_default.$key);
-            
-     	    if($player[1] == "jR") $matches_role[3][0] = "AWPers";
 
             if(!strcmp(strtolower($matches_role[3][0]), strtolower($filters["role"])) && 
                 $matches_age[0][0] >= ($filters["age"]-3) && $matches_age[0][0] <= ($filters["age"]+3) &&
                 $majors >= ($filters["majors"]-3) && $majors <= ($filters["majors"]+3)
             ) {
-                return array($player[1], $name[1], array_unique($matches_country[2]), $matches_age[0][0], $matches_role[3][0] ?? "Rifler", $matches_team[3][0] ?? "none", $majors);
+                return array($player[1], $name[1], $matches_country[6], $matches_age[0][0], $matches_role[3][0] ?? "Rifler", $matches_team[3][0] ?? "none", $majors);
             }
 
             return array();
@@ -114,9 +112,9 @@
             $this->re_name = "
                 /<div class=\"infobox\-cell\-2 infobox\-description\">Name:<\/div><div class=\"infobox\-cell\-2\">(\X+?)<\/div>/
             ";
-	    #((<span class=\"flag\">)*(<a href=\"\/counterstrike\/Category:(.*?)\" title=\"(\w+)\"><img alt=\"(\w+)\" src=\"\/commons\/images\/(.*?)\" decoding=\"async\" width=\"36\" height=\"24\" loading=\"lazy\" \/><\/a>)(<\/span>))
+
             $this->re_country = "
-                /(?=(<div class=\"infobox\-cell\-2 infobox\-description\">Nationality:<\/div><div class=\"infobox\-cell\-2\">)*<span class=\"flag\"><a href=\"\/counterstrike\/Category:[a-zA-Z0-9_]+\" title=\"([a-zA-Z0-9\s]+)\">.*?<\/a><\/span>(<\/div>)*?)/
+                /((<span class=\"flag\">)*(<a href=\"\/counterstrike\/Category:(.*?)\" title=\"(\w+)\"><img alt=\"(\w+)\" src=\"\/commons\/images\/(.*?)\" decoding=\"async\" width=\"36\" height=\"24\" loading=\"lazy\" \/><\/a>)(<\/span>))/
             ";
 
             $this->re_age = "
@@ -124,7 +122,7 @@
             ";
 
             $this->re_role = "
-                /<a href=\"\/counterstrike\/Category:(AWPers|Riflers|Coaches)\" title=\"Category:(AWPers|Riflers|Coaches)\">(AWPers|Rifler|Coach?)<\/a>/
+                /<a href=\"\/counterstrike\/Category:(AWPers|Riflers)\" title=\"Category:(AWPers|Riflers)\">(AWPers|Rifler?)<\/a>/
             ";
 
             $this->re_team = "
@@ -139,9 +137,9 @@
                 /<div class=\"infobox\-cell\-2 infobox\-description\">Romanized Name:<\/div><div class=\"infobox\-cell\-2\">(.*?)<\/div>/
             ";
 
-            #<tr class=\"valvemajor-highlighted\">((?!<a href=\"\/counterstrike\/A\-Tier_Tournaments\" title=\"A\-Tier Tournaments\">A\-Tier<\/a>).)*?<\/tr>
+            #<tr class=\"valvemajor\-highlighted\">(.*?)</tr>
             $this->majors = "
-                /(?=<tr class=\"valvemajor-highlighted\">((?!<a href=\"\/counterstrike\/Qualifier_Tournaments\" title=\"Qualifier Tournaments\">Qualifier<\/a>|<a href=\"\/counterstrike\/A\-Tier_Tournaments\" title=\"A\-Tier Tournaments\">A\-Tier<\/a>).)*?<\/tr>)/
+                /<tr class=\"valvemajor-highlighted\">((?!<a href=\"\/counterstrike\/A\-Tier_Tournaments\" title=\"A\-Tier Tournaments\">A\-Tier<\/a>).)*?<\/tr>/
             ";
         }
     }
