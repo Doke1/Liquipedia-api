@@ -42,7 +42,7 @@
         {
             $array = $this->country($country, $role);
 
-            echo "Searching with filters: ".$country.", ".$role.", ".$age."\r\n";
+            echo "\033[1mSearching with filters: ".$country.", ".$role.", ".$age."\033[0m\r\n";
 
             foreach($array as $key) {
                 $curl = CurlE::send($this->uri_default.$key);
@@ -63,8 +63,9 @@
                 }
             }
 
-            if(count($this->user_info) >= 1) print_r("\r\nPlayers succesfuly founded\r\n");
+            if(count($this->user_info) >= 1) print_r("\r\n\033[92mPlayers succesfuly founded\r\n");
             else print_r("\r\nPlayers not found\r\n");
+            print_r("\033[91mYou have to wait 30 seconds to use this program again meanwhile you can see the list of players in players.json\r\n");
             file_put_contents("./players.json", json_encode($this->user_info));
         }
 
